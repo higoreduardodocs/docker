@@ -4,7 +4,7 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 
 import config from './config/index.js'
-// import routes from './routes/index.js'
+import routes from './routes/index.js'
 
 /* CONST */
 const port = process.env.PORT || 3001
@@ -31,7 +31,7 @@ const connectWithRetry = () => {
 connectWithRetry()
 
 /* ROUTES */
-// app.use('/api/v1', routes)
+app.use('/api/v1', routes)
 
 /* ERRORS */
 app.use(function (err, req, res, next) {

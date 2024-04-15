@@ -10,6 +10,7 @@ services:
       - PORT=3001
       - MONGO_USER=admin
       - MONGO_PASS=admin
+      - MONGO_DB=mern
     restart: always
     ports:
       - 3001:3001

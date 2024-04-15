@@ -1,0 +1,20 @@
+@server=http://localhost:3001/api/v1
+@users=users
+
+### POST /sign-up
+POST {{ server }}/{{ users }}/sign-up HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "pass"
+}
+
+### POST /sign-in
+POST {{ server }}/{{ users }}/sign-in HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "pass"
+}
