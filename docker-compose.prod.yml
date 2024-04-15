@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  server:
+    deploy:
+      replicas: 8
+      restart_policy:
+        condition: any
+      update_config:
+        parallelism: 2
+        delay: 15s
+    build:
+      context: ./server
+      args:
+        - NODE_ENV=production
+    environment:
+      - MONGO_USER=${MONGO_USER}
+      - MONGO_PASS=${MONGO_PASS}
+      - MONGO_DB=${MONGO_DB}
+    restart: unless-stopped
+    command: yarn start
+
+  mongo:
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./web
+      args:
+        - SERVER_URL=${SERVER_URL}
+        - NGINXFILE=${NGINXFILE}
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    command: nginx -g 'daemon off;'

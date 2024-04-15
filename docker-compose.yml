@@ -4,7 +4,6 @@ services:
   server:
     build: ./server
     # image: higoreduardodocs/docker-mern-server
-    container_name: server
     depends_on:
       - mongo
 
@@ -21,7 +20,6 @@ services:
   web:
     build: ./web
   #   image: higoreduardodocs/docker-mern-web
-    container_name: web
 
 volumes:
   mongo-db:

@@ -6,6 +6,7 @@ services:
       context: ./server
       args:
         - NODE_ENV=development
+    container_name: server
     environment:
       - PORT=3001
       - MONGO_USER=admin
@@ -25,6 +26,7 @@ services:
       dockerfile: Dockerfile.dev
       args:
         - SERVER_URL=http://localhost:3001/api/v1
+    container_name: web
     stdin_open: true
     restart: always
     ports:

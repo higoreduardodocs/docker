@@ -59,3 +59,56 @@ mongo-bash:
 web-bash:
 	docker exec -it \
 		web bash
+
+### run-local
+run-local:
+	SERVER_URL=http://localhost/api/v1 NGINXFILE=nginx.local.conf MONGO_USER=admin MONGO_PASS=admin MONGO_DB=mern \
+		docker compose \
+		-f docker-compose.yml \
+		-f docker-compose.prod.yml \
+		up -d \
+	&& clear \
+	&& docker ps
+
+### scale-local
+scale-local:
+	SERVER_URL=http://localhost/api/v1 NGINXFILE=nginx.local.conf MONGO_USER=admin MONGO_PASS=admin MONGO_DB=mern \
+		docker compose \
+		-f docker-compose.yml \
+		-f docker-compose.prod.yml \
+		up -d --scale server=2 \
+	&& clear \
+	&& docker ps
+
+### down-local
+down-local:
+	SERVER_URL=http://localhost/api/v1 NGINXFILE=nginx.local.conf MONGO_USER=admin MONGO_PASS=admin MONGO_DB=mern \
+		docker compose \
+		-f docker-compose.yml \
+		-f docker-compose.prod.yml \
+		down \
+	&& clear \
+	&& docker ps
+
+### swarm-local
+swarm-local:
+	SERVER_URL=http://172.30.86.36/api/v1 NGINXFILE=nginx.local.conf MONGO_USER=admin MONGO_PASS=admin MONGO_DB=mern \
+		docker stack deploy \
+		-c docker-compose.yml \
+		-c docker-compose.prod.yml \
+		swarmapp \
+	&& docker service ls
+
+### leave-swarm
+leave-swarm:
+	docker swarm leave -f && clear
+
+### run-prod
+run-prod:
+	SERVER_URL=localhost/api/v1 NGINXFILE=nginx.conf MONGO_USER=admin MONGO_PASS=admin MONGO_DB=mern \
+		docker compose \
+		-f docker-compose.yml \
+		-f docker-compose.prod.yml \
+		up -d \
+	&& clear \
+	&& docker ps
