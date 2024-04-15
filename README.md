@@ -1,5 +1,3 @@
-# docker
-
 Applications developed in Docker, Express, Mongo and React
 
 > :fire: Development
