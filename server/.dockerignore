@@ -1,0 +1,7 @@
+.dockerignore
+.gitignore
+.prettierrc
+docker-compose.*
+Dockerfile
+yarn.lock
+api.http
