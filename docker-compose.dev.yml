@@ -1,6 +1,11 @@
 version: "3"
 
 services:
+  nginx:
+    container_name: nginx
+    ports:
+      - 3000:80
+
   server:
     build:
       context: ./server
@@ -12,8 +17,8 @@ services:
       - MONGO_USER=admin
       - MONGO_PASS=admin
       - MONGO_DB=swarm
-    ports:
-      - 3000:3000
+    # ports:
+    #   - 3000:3000
     volumes:
       - ./server:/app
       - /app/node_modules
