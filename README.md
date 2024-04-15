@@ -6,6 +6,31 @@ Applications developed in Docker, Express, Mongo and React
 
 ```
   make run-dev
+  make stop-containers
+  make down-dev
+  make clear-server
+  make clear-web
+  make clear-volumes
+  make server-logs
+  make server-bash
+  make mongo-bash
+  make web-bash
+```
+
+> :fire: Local
+
+```
+  make run-local
+  make scale-local
+  make down-local
+  make swarm-local
+  make leave-swarm
+```
+
+> :fire: Production
+
+```
+  make run-prod
 ```
 
 > :gear: Environment Variables
