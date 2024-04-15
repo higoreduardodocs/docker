@@ -112,3 +112,13 @@ run-prod:
 		up -d \
 	&& clear \
 	&& docker ps
+
+### down-prod
+down-prod:
+	SERVER_URL=localhost/api/v1 NGINXFILE=nginx.conf MONGO_USER=admin MONGO_PASS=admin MONGO_DB=mern \
+		docker compose \
+		-f docker-compose.yml \
+		-f docker-compose.prod.yml \
+		down \
+	&& clear \
+	&& docker ps
