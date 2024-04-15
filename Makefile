@@ -40,3 +40,8 @@ server-bash:
 mongo-bash:
 	docker exec -it \
 		mongo mongo -u admin -p admin
+
+### web-bash
+web-bash:
+	docker exec -it \
+		web bash
