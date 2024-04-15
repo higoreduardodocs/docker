@@ -1,0 +1,6 @@
+.dockerignore
+.eslintrc.cjs
+.gitignore
+.prettierrc
+Dockerfile.*
+yarn.lock
