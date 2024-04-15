@@ -7,6 +7,11 @@ run-dev:
 	&& clear \
 	&& docker ps
 
+### stop-containers
+stop-containers:
+	docker stop server mongo web \
+	&& clear
+
 ### down-dev
 down-dev:
 	docker compose \
@@ -18,13 +23,22 @@ down-dev:
 
 ### clear-server
 clear-server:
-	docker system prune \
-	&& docker volume prune \
-	&& docker container prune \
-	&& docker rmi docker-server \
-	&& docker volume rm $(docker volume ls -qf dangling=true) \
-	&& docker clear \
+	docker rmi docker-server \
+	&& clear \
 	&& docker images
+
+### clear-web
+clear-web:
+	docker rmi docker-web \
+	&& clear \
+	&& docker images
+
+### clear-volumes
+clear-volumes:
+	docker system prune \
+	&& docker volume rm docker_mongo-db \
+	&& docker volume prune \
+	&& docker volume rm $(docker volume ls -qf dangling=true)
 
 ### server-logs
 server-logs:
