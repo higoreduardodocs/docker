@@ -5,8 +5,8 @@ const colors = require('colors')
 
 /* CONST */
 const config = require('./config')
-// const userRoutes = require('./routes/user.route')
-// const postRoutes = require('./routes/post.route')
+const userRoutes = require('./routes/user-route')
+const postRoutes = require('./routes/post-route')
 
 const mongoUri = `mongodb://${config.MONGO_USER}:${config.MONGO_PASS}@${config.MONGO_IP}:${config.MONGO_PORT}/${config.MONGO_DB}?authSource=admin`
 const mongoOptions = { useNewUrlParser: true, useUnifiedTopology: true }
@@ -32,8 +32,8 @@ const connectWithRetry = () => {
 }
 connectWithRetry()
 
-// app.use('/api/v1/users', userRoutes)
-// app.use('/api/v1/posts', postRoutes)
+app.use('/api/v1/users', userRoutes)
+app.use('/api/v1/posts', postRoutes)
 
 app.listen(port, (error) => {
   if (error) console.log(`${error} did not connect server`.bgRed.white)
