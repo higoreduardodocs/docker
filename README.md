@@ -1,9 +1,34 @@
-# :desktop_computer: Next Application
+Applications developed in Docker, Express and Mongo
 
-Applications developed in Docker and other auxiliary technologies
+> :fire: Development
 
-> Docker App:
+```
+  make run-dev
+  make stop-containers
+  make down-dev
+  make clear-server
+  make clear-volumes
+  make server-logs
+  make server-bash
+  make mongo-bash
+```
 
-- Mern: [docker-app/mern](https://github.com/higoreduardodocs/next/tree/ssr-app/anime-vault)
+> :fire: Production
 
-> :copyright: [Higor Eduardo Docs](https://github.com/higoreduardodocs)
+```
+  make run-prod
+  make down-prod
+```
+
+> :gear: Environment Variables
+
+- User mongo: MONGO_INITDB_ROOT_USERNAME `mongo`
+- Pass mongo: MONGO_INITDB_ROOT_PASSWORD `mongo`
+- Environment: NODE_ENV `server`
+- User mongo: MONGO_USER `server`
+- Pass mongo: MONGO_PASS `server`
+- Database mongo: MONGO_DB `server`
+
+> :thought_balloon: `Sanjeev Thiyagarajan`
+
+![Cover](./assets/cover.png)
