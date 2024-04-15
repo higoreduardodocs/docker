@@ -1,4 +1,5 @@
 @server=http://localhost:3001/api/v1
+
 @users=users
 
 ### POST /sign-up
@@ -18,3 +19,36 @@ Content-Type: application/json
   "username": "user",
   "password": "pass"
 }
+
+@posts=posts
+@postId=661c779dbd920556f4612d07
+
+### POST /
+POST {{ server }}/{{ posts }} HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Título",
+  "body": "Corpo"
+}
+
+### GET /
+GET {{ server }}/{{ posts }} HTTP/1.1
+
+### PUT /:id
+PUT {{ server }}/{{ posts }}/{{ postId }} HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Título",
+  "body": "Corpo 2"
+}
+
+### GET /:id
+GET {{ server }}/{{ posts }}/{{ postId }} HTTP/1.1
+
+### DELETE /:id
+DELETE {{ server }}/{{ posts }}/{{ postId }} HTTP/1.1
+
+### GET /seed
+GET {{ server }}/{{ posts }}/seed HTTP/1.1
